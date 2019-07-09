@@ -21,7 +21,7 @@
 %% Use the "normalphoto" option if you want a normal photo instead of cropped to a circle
 % \documentclass[10pt,a4paper,normalphoto]{altacv}
 
-\documentclass[10pt,a4paper,ragged2e]{altacv}
+\documentclass[10pt,a4paper,ragged2e,academicons]{altacv}
 
 %% AltaCV uses the fontawesome and academicon fonts
 %% and packages.
@@ -75,8 +75,8 @@
 %  \twitter{@marissamayer}
   %\linkedin{linkedin.com/in/ronak-dedhiya}
   \homepage{medium.com/@liventsevvadim}
-   \github{github.com/vadim0x60} % I'm just making this up though.
-%   \orcid{orcid.org/0000-0000-0000-0000} % Obviously making this up too. If you want to use this field (and also other academicons symbols), add "academicons" option to \documentclass{altacv}
+   \github{github.com/vadim0x60}
+   \orcid{orcid.org/0000−0002−6670−6909} % Obviously making this up too. If you want to use this field (and also other academicons symbols), add "academicons" option to \documentclass{altacv}
 }
 
 %% Make the header extend all the way to the right, if you want.
@@ -97,19 +97,19 @@
 
 Developing named entity recognition with confidence levels in order to interpret medical records.
 
-\divider
+\bigskip
 
 \cvevent{Chief Technology Officer}{BotEngine}{Jun 2017 -- Dec 2017}{Moscow, Russia}
 
 A platform for development and deployment of chatbots.
 
-\divider
+\bigskip
 
 \cvevent{Software Development Intern}{Institute for System Programming of the Russian Academy of Science}{Nov 2014 -- Aug 2016}{Moscow, Russia}
 
 Contributing to Modular Avionics System Integrator Workplace and One-Click Eclipse Text Editor.
 
-\divider
+\bigskip
 
 \cvevent{Software Development Intern}{Samsung Research and Development Center}{Jul 2016}{Moscow, Russia}
 
@@ -117,26 +117,30 @@ Developing mobile applications for Tizen OS
 
 %\divider
 
-\cvsection{SKILLS}
-
-\begin{itemize}
-    \item Deep Learning: ConvNets, RNNs, Attention, GANs. Pytorch and Tensorflow.
-    \item Statistics. Bayesian and Neurobayesian methods
-    \item Natural Language Processing. Information Extraction.
-    \item Efficient algorithms and data structures
-    \item C, C++, C\#, Java, Clojure, Python, JavaScript, bash, PHP :(
-    \item x86 architecture: paging, stack, interrupts, assembly language
-    \item Databases: Not-only-SQL
-    \item Project management methodologies. Scrum.
-    \item Russian-English bilingual. Intermediate French. Good command of spoken and written sarcasm
-\end{itemize}
-
 \cvsection{Education}
-\cvevent{MSc in Data Science}{Skolkovo Institute of Science and Technology (Skoltech)}{Sep 2017 -- Present}{}
+\cvevent{MSc in Data Science}{Skolkovo Institute of Science and Technology (Skoltech)}{Sep 2017 -- Jun 2019}{}
 %\divider
 \cvevent{Bachelor of Software Engineering}{Higher School of Economics (HSE)}{ Sep 2013 -- Aug 2017}{}
 % \divider
 \cvevent{Concentration in Programming}{Lyceum of Information Technologies (LIT)}{ Sep 2009 -- Jun 2013}{}
+
+As well as
+
+\begin{itemize}
+    \item Foundations of Machine Learning. \emph{Mehryar Mohri}, 2016
+    \item Yandex NLP Week. \emph{Wilker Aziz, Mirella Lapata}, 2019
+\end{itemize}
+
+\cvsection{Teaching}
+\begin{itemize}
+    \item Course author and instructor @ \emph{Functional Programming with Clojure}. Skoltech 2018, 2019. 
+    \item Course author and instructor @ \emph{Introduction to Artificial Humour}. Skoltech 2019.
+    \item Guest lecturer @ \emph{Natural Language Processing}. HSE 2019. \\ Attention mechanism, language models.
+    \item Speaker @ \emph{MoscowNLP} seminar.
+    \item Mentor @ \emph{Neurohackathon 2018}. Medical image segmentation for Multiple Sklerosis.
+\end{itemize}
+
+\footnotetext{Internal conference at Philips Research}
 
 \clearpage
 
@@ -160,6 +164,5 @@ Developing mobile applications for Tizen OS
 % %% sidebar a bit so that it looks aligned with the top of the
 % %% main column.
 % % \addnextpagesidebar[-1ex]{page3sidebar}
-
 
 \end{document}
