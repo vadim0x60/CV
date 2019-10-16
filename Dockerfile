@@ -1,2 +1,2 @@
 FROM zidizei/lualatex
-RUN apt-get update && apt-get install texlive-fonts-extra
+RUN tlmgr install fontawesome5
