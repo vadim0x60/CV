@@ -1,2 +1,2 @@
-FROM zidizei/lualatex
+FROM schickling/latex
 RUN tlmgr install fontawesome5
