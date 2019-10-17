@@ -1,1 +1,1 @@
-Build it with `make`
+Read it [here](vadim.pdf), rebuild it with `make`
