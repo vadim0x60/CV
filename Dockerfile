@@ -1,2 +1,2 @@
-FROM schickling/latex
+FROM blang/latex:ctanfull
 RUN tlmgr install fontawesome5
