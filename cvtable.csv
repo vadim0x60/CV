@@ -1,0 +1,13 @@
+Year,Affiliation,I built,Public artifacts
+2025-2026,Ideatura,An LLM coding harness for manipulating 3D models.,ideatura.ai
+2024-2025,Philips Research,"A classifier for medical device support tickets, identifying a number of common defect types.",
+,,A retrieval based slide deck generator for employee training.,
+2019-2024,TU/e x Philips Research,"Multi-agent coding frameworks, using LLMs and principles of genetic programming",
+,,Structural language models of code,
+,,"Reinforcement learning environments for healthcare, both vision based and data based.",
+,,Reinforcement learning from code execution feedback,
+2019,RedKangaroo,"A platform for clinical data exchange, to sync your health data between providers.",
+2017-2019,Skoltech x Philips Research,A system for mining tabular data from clinical notes.,
+2017,BotEngine,A web app to create your own chatbot using rules and flowcharts.,
+2013-2017,HSE x ISPRAS,A language-agnostic code autocompletion system,
+2009-2013,LIT,Swarm robotics algorithms for exploring a location,

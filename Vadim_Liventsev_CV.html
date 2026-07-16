@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Vadim Liventsev">
+  <meta name="description" content="Selected AI research and engineering work by Vadim Liventsev">
+  <title>Vadim Liventsev — Selected Work</title>
+  <style>
+    :root {
+      --ink: #212121;
+      --muted: #62676d;
+      --faint: #e0e0e0;
+      --paper: #fafafa;
+      --accent: #1565c0;
+      --accent-soft: #e9f2fc;
+      --private-bg: #f0f1f2;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      color: var(--ink);
+      background: #dfe3e7;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans,
+        Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 10pt;
+      line-height: 1.38;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .page {
+      position: relative;
+      width: 210mm;
+      height: 297mm;
+      margin: 12mm auto;
+      padding: 12mm 13mm 13mm;
+      overflow: hidden;
+      background: var(--paper);
+      box-shadow: 0 4mm 12mm rgba(24, 39, 55, 0.16);
+    }
+
+    .masthead {
+      padding-bottom: 4.2mm;
+      border-bottom: 0.55mm solid var(--ink);
+    }
+
+    .navline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 4mm;
+      color: var(--muted);
+      font-size: 7.4pt;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .navline .brand {
+      color: var(--ink);
+    }
+
+    .identity {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10mm;
+      align-items: end;
+    }
+
+    h1 {
+      margin: 0;
+      color: #000;
+      font-size: 27pt;
+      font-weight: 700;
+      letter-spacing: -0.035em;
+      line-height: 0.98;
+    }
+
+    .role {
+      margin: 1.7mm 0 0;
+      color: var(--accent);
+      font-size: 10.3pt;
+      font-weight: 650;
+      letter-spacing: 0.01em;
+      line-height: 1.15;
+    }
+
+    .summary {
+      max-width: 77mm;
+      margin: 0;
+      color: #41464b;
+      font-size: 8.65pt;
+      line-height: 1.42;
+      text-align: right;
+    }
+
+    .contacts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.3mm 5mm;
+      margin-top: 3.4mm;
+      color: var(--muted);
+      font-size: 7.8pt;
+      font-weight: 550;
+      line-height: 1.2;
+    }
+
+    .contacts a::before,
+    .contacts span::before {
+      display: inline-block;
+      width: 1.2em;
+      margin-right: 0.35em;
+      color: var(--accent);
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .contacts .location::before { content: "•"; }
+    .contacts .email::before { content: "@"; }
+    .contacts .web::before { content: "↗"; }
+    .contacts .github::before { content: "⌘"; }
+    .contacts .scholar::before { content: "§"; }
+
+    main {
+      padding-top: 4mm;
+      padding-bottom: 16mm;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 2.5mm;
+    }
+
+    h2 {
+      margin: 0;
+      color: #000;
+      font-size: 10.5pt;
+      font-weight: 760;
+      letter-spacing: 0.11em;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .section-note {
+      margin: 0;
+      color: var(--muted);
+      font-size: 7.1pt;
+      line-height: 1;
+    }
+
+    .column-head,
+    .work-row {
+      display: grid;
+      grid-template-columns: 36mm minmax(0, 1fr) 49mm;
+      column-gap: 4mm;
+    }
+
+    .column-head {
+      padding: 1.8mm 0 1.6mm;
+      color: #70757a;
+      border-top: 0.25mm solid var(--faint);
+      border-bottom: 0.25mm solid var(--faint);
+      font-size: 6.8pt;
+      font-weight: 750;
+      letter-spacing: 0.11em;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .work-group {
+      border-bottom: 0.25mm solid var(--faint);
+    }
+
+    .work-row {
+      align-items: center;
+      min-height: 15.4mm;
+      break-inside: avoid;
+      padding: 2.6mm 0;
+    }
+
+    .work-row + .work-row {
+      border-top: 0.2mm solid #ededed;
+    }
+
+    .work-row + .work-row .tenure {
+      visibility: hidden;
+    }
+
+    .years {
+      display: block;
+      margin-bottom: 0.55mm;
+      color: var(--accent);
+      font-size: 7.35pt;
+      font-weight: 760;
+      letter-spacing: 0.035em;
+      line-height: 1.1;
+    }
+
+    .affiliation {
+      display: block;
+      color: #000;
+      font-size: 8.4pt;
+      font-weight: 720;
+      line-height: 1.16;
+    }
+
+    .project {
+      position: relative;
+      margin: 0;
+      padding-left: 3.2mm;
+      color: #282c30;
+      font-size: 8.25pt;
+      line-height: 1.34;
+    }
+
+    .project::before {
+      position: absolute;
+      top: 0.47em;
+      left: 0;
+      width: 1.35mm;
+      height: 1.35mm;
+      border-radius: 50%;
+      background: var(--accent);
+      content: "";
+    }
+
+    .artifacts {
+      display: flex;
+      flex-wrap: wrap;
+      align-content: center;
+      gap: 1.1mm;
+      padding-top: 0.05mm;
+    }
+
+    .artifact {
+      display: inline-flex;
+      align-items: center;
+      min-height: 5.2mm;
+      padding: 0.8mm 1.65mm;
+      border: 0.22mm solid #b9d3ef;
+      border-radius: 99px;
+      background: var(--accent-soft);
+      color: #0f579f;
+      font-size: 6.75pt;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .artifact::after {
+      margin-left: 0.55mm;
+      color: var(--accent);
+      content: "↗";
+      font-size: 0.9em;
+    }
+
+    .artifact.private {
+      border-color: #d7dadd;
+      background: var(--private-bg);
+      color: #6b7075;
+    }
+
+    .artifact.private::after {
+      content: "";
+    }
+
+    footer {
+      position: absolute;
+      right: 13mm;
+      bottom: 7.5mm;
+      left: 13mm;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 12mm;
+      padding-top: 2.6mm;
+      border-top: 0.25mm solid var(--faint);
+      color: var(--muted);
+      font-size: 7pt;
+      line-height: 1.35;
+    }
+
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 3mm;
+    }
+
+    .qr {
+      display: block;
+      width: 11mm;
+      height: 11mm;
+      image-rendering: pixelated;
+    }
+
+    .footer-title {
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 3.3mm;
+      align-items: center;
+      font-weight: 620;
+    }
+
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    @media print {
+      html,
+      body {
+        background: var(--paper);
+      }
+
+      .page {
+        margin: 0;
+        box-shadow: none;
+      }
+
+      *,
+      *::before,
+      *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <article class="page">
+    <header class="masthead">
+      <div class="navline">
+        <span class="brand">Vadim Liventsev</span>
+        <span>Selected work · 2009—2026</span>
+      </div>
+
+      <div class="identity">
+        <div>
+          <h1>Vadim Liventsev</h1>
+          <p class="role">Head of AI · Machine Learning Scientist &amp; Engineer</p>
+        </div>
+        <p class="summary">
+          AI research and engineering across program synthesis, agentic coding,
+          machine learning for health, and tools for structured and 3D data.
+        </p>
+      </div>
+
+      <div class="contacts" aria-label="Contact information">
+        <span class="location">London, UK</span>
+        <a class="email" href="mailto:hi@vadim.me">hi@vadim.me</a>
+        <a class="web" href="https://vadim.me">vadim.me</a>
+        <a class="github" href="https://github.com/vadim0x60">github.com/vadim0x60</a>
+        <a class="scholar" href="https://scholar.google.com/citations?user=tpB0Uw8AAAAJ">Google Scholar</a>
+      </div>
+    </header>
+
+    <main>
+      <div class="section-title">
+        <h2>Selected AI &amp; Software Work</h2>
+        <p class="section-note">Public links open the corresponding paper, code, or product.</p>
+      </div>
+
+      <div class="column-head" aria-hidden="true">
+        <span>When / where</span>
+        <span>What I built</span>
+        <span>Public artifacts</span>
+      </div>
+
+      <section class="work-group" aria-label="Ideatura">
+        <div class="work-row">
+          <div class="tenure">
+            <span class="years">2025—2026</span>
+            <span class="affiliation">Ideatura</span>
+          </div>
+          <p class="project">An LLM coding harness for manipulating 3D models.</p>
+          <div class="artifacts">
+            <a class="artifact" href="https://ideatura.ai">ideatura.ai</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="work-group" aria-label="Philips Research">
+        <div class="work-row">
+          <div class="tenure">
+            <span class="years">2024—2025</span>
+            <span class="affiliation">Philips Research</span>
+          </div>
+          <p class="project">A medical-device support-ticket classifier identifying common defect types.</p>
+          <div class="artifacts">
+            <span class="artifact private">Private work</span>
+          </div>
+        </div>
+        <div class="work-row">
+          <div class="tenure">Philips Research</div>
+          <p class="project">A retrieval-based slide-deck generator for employee training.</p>
+          <div class="artifacts">
+            <span class="artifact private">Private work</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="work-group" aria-label="Eindhoven University of Technology and Philips Research">
+        <div class="work-row">
+          <div class="tenure">
+            <span class="years">2019—2024</span>
+            <span class="affiliation">TU/e × Philips Research</span>
+          </div>
+          <p class="project">Multi-agent coding frameworks combining LLMs with genetic-programming principles.</p>
+          <div class="artifacts">
+            <a class="artifact" href="https://doi.org/10.1145/3719351">SEIDR paper</a>
+            <a class="artifact" href="https://github.com/vadim0x60/seidr">Code</a>
+          </div>
+        </div>
+        <div class="work-row">
+          <div class="tenure">TU/e × Philips Research</div>
+          <p class="project">Structural language models for source code.</p>
+          <div class="artifacts">
+            <a class="artifact" href="https://doi.org/10.1109/ACCESS.2025.3532522">Tree VAE</a>
+            <a class="artifact" href="https://github.com/vadim0x60/autoencoderopt">Code</a>
+          </div>
+        </div>
+        <div class="work-row">
+          <div class="tenure">TU/e × Philips Research</div>
+          <p class="project">Reinforcement-learning environments for healthcare, spanning vision and structured data.</p>
+          <div class="artifacts">
+            <a class="artifact" href="https://doi.org/10.3389/frai.2021.798659">Paper</a>
+            <a class="artifact" href="https://github.com/vadim0x60/heartpole">HeartPole</a>
+            <a class="artifact" href="https://github.com/vadim0x60/auto-als">Auto-ALS</a>
+          </div>
+        </div>
+        <div class="work-row">
+          <div class="tenure">TU/e × Philips Research</div>
+          <p class="project">Reinforcement learning from code-execution feedback.</p>
+          <div class="artifacts">
+            <a class="artifact" href="https://arxiv.org/abs/2101.09571">BF++ paper</a>
+            <a class="artifact" href="https://github.com/vadim0x60/cibi">Cibi code</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="work-group" aria-label="RedKangaroo">
+        <div class="work-row">
+          <div class="tenure">
+            <span class="years">2019</span>
+            <span class="affiliation">RedKangaroo</span>
+          </div>
+          <p class="project">A clinical-data exchange platform for syncing health data between providers.</p>
+          <div class="artifacts">
+            <span class="artifact private">Archived / private</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="work-group" aria-label="Skoltech and Philips Research">
+        <div class="work-row">
+          <div class="tenure">
+            <span class="years">2017—2019</span>
+            <span class="affiliation">Skoltech × Philips Research</span>
+          </div>
+          <p class="project">A system for mining tabular data from clinical notes.</p>
+          <div class="artifacts">
+            <a class="artifact" href="https://doi.org/10.1007/978-3-030-30493-5_26">Deep Text Prior</a>
+            <a class="artifact" href="https://doi.org/10.1109/BIBM47256.2019.8983157">Active learning</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="work-group" aria-label="BotEngine">
+        <div class="work-row">
+          <div class="tenure">
+            <span class="years">2017</span>
+            <span class="affiliation">BotEngine</span>
+          </div>
+          <p class="project">A web app for building chatbots with rules and flowcharts.</p>
+          <div class="artifacts">
+            <span class="artifact private">No public release</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="work-group" aria-label="Higher School of Economics and ISPRAS">
+        <div class="work-row">
+          <div class="tenure">
+            <span class="years">2013—2017</span>
+            <span class="affiliation">HSE × ISPRAS</span>
+          </div>
+          <p class="project">A language-agnostic code-completion system.</p>
+          <div class="artifacts">
+            <span class="artifact private">No public release</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="work-group" aria-label="Lyceum of Information Technologies">
+        <div class="work-row">
+          <div class="tenure">
+            <span class="years">2009—2013</span>
+            <span class="affiliation">LIT</span>
+          </div>
+          <p class="project">Swarm-robotics algorithms for exploring a location.</p>
+          <div class="artifacts">
+            <span class="artifact private">No public release</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-left">
+        <img
+          class="qr"
+          alt="QR code for vadim.me"
+          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhAQMAAAAEfUA5AAAABlBMVEX6+voAAAD6MT2PAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAA/klEQVRYhe2YMRKEIAxF41hYegSP4tHgaB7FI2xpwZgNCS6Iymzv/4Vk/rPKhBAggko5NoXDmJOxg17oqt4YiD0NzDR/1BhAb6hYvAi1UGgvxgraoskCtVzRtBFok/72oOpxh4IWvZ39tHX81PlBz9KqexSoZXIZ4zduS2tsPv34NiqSYiLq2XLFh3bQmjo+rBh2MQjJBa0oTVp1Eti0KaGegwR6oc6GKkuflBpznBl8nsxfRbOsSRWtC7Sijk15gjrvUNCCrrqMoToSCfSG5hufpm+O0BNom6b09VxU3Ytp8YhykytQW+1FTgbPeioALSibTr29uuOAptkb+lNfb9o8nsWTblIAAAAASUVORK5CYII=">
+        <div>
+          <div class="footer-title">vadim.me</div>
+          <div>Scan for the live profile and current links.</div>
+        </div>
+      </div>
+      <nav class="footer-links" aria-label="Footer links">
+        <a href="mailto:hi@vadim.me">say hi</a>
+        <a href="https://vadim.me/publications/">publications</a>
+        <a href="https://www.linkedin.com/in/vadim-liventsev-6b56b9196/">LinkedIn</a>
+        <a href="https://orcid.org/0000-0002-6670-6909">ORCID</a>
+      </nav>
+    </footer>
+  </article>
+</body>
+</html>
