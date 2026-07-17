@@ -126,22 +126,6 @@
   #text(size: 8.4pt, weight: 720, fill: black)[#affiliation]
 ]
 
-#let work-row(description, artifacts, years: none, affiliation: none) = block(
-  breakable: false,
-  [
-    #grid(
-      columns: (36mm, 1fr, 49mm),
-      rows: 16.5mm,
-      column-gutter: 4mm,
-      align: (left + horizon, left + horizon, left + horizon),
-      if years == none { [] } else { tenure(years, affiliation) },
-      project(description),
-      artifacts,
-    )
-    #line(length: 100%, stroke: .2mm + faint)
-  ],
-)
-
 #v(4mm)
 #grid(
   columns: (1fr, 77mm),
@@ -188,47 +172,39 @@
 )
 #line(length: 100%, stroke: .25mm + faint)
 
-#work-row(
-  [An LLM coding harness for manipulating 3D models.],
+#grid(
+  columns: (36mm, 1fr, 49mm),
+  rows: 16.5mm,
+  column-gutter: 4mm,
+  align: (left + horizon, left + horizon, left + horizon),
+
+  // Ideatura
+  tenure([2025—2026], [Ideatura]),
+  project([An LLM coding harness for manipulating 3D models.]),
   [#artifact([ideatura.ai], citation-key: <ideatura>, url: "https://ideatura.ai")],
-  years: [2025—2026],
-  affiliation: [Ideatura],
-)
 
-#work-row(
-  [A medical-device support ticket classifier identifying common defect types.],
+  // Philips Research — spans two projects
+  grid.cell(rowspan: 2, tenure([2024—2025], [Philips Research])),
+  project([A medical-device support ticket classifier identifying common defect types.]),
   [],
-  years: [2024—2025],
-  affiliation: [Philips Research],
-)
-
-#work-row(
-  [A retrieval-based slide-deck generator for employee training.],
+  project([A retrieval-based slide-deck generator for employee training.]),
   [],
-)
 
-#work-row(
-  [Multi-agent coding frameworks combining LLMs with genetic-programming principles.],
+  // TU/e × Philips Research — spans four projects
+  grid.cell(rowspan: 4, tenure([2019—2024], [TU/e × Philips Research])),
+  project([Multi-agent coding frameworks combining LLMs with genetic-programming principles.]),
   [
     #artifact([SEIDR paper], citation-key: <grishina2025seidr>, url: "https://doi.org/10.1145/3719351")
     #h(1.1mm)
     #artifact([Code], citation-key: <seidr-code>, url: "https://github.com/vadim0x60/seidr")
   ],
-  years: [2019—2024],
-  affiliation: [TU/e × Philips Research],
-)
-
-#work-row(
-  [Structural language models for source code.],
+  project([Structural language models for source code.]),
   [
     #artifact([Tree VAE], citation-key: <liventsev2025tree>, url: "https://doi.org/10.1109/ACCESS.2025.3532522")
     #h(1.1mm)
     #artifact([Code], citation-key: <tree-vae-code>, url: "https://github.com/vadim0x60/autoencoderopt")
   ],
-)
-
-#work-row(
-  [Reinforcement-learning environments for healthcare, spanning vision and structured data.],
+  project([Reinforcement-learning environments for healthcare, spanning vision and structured data.]),
   [
     #artifact([Paper], citation-key: <liventsev2021simulators>, url: "https://doi.org/10.3389/frai.2021.798659")
     #h(1.1mm)
@@ -236,54 +212,57 @@
     #h(1.1mm)
     #artifact([Auto-ALS], citation-key: <auto-als-code>, url: "https://github.com/vadim0x60/auto-als")
   ],
-)
-
-#work-row(
-  [Reinforcement learning from code execution feedback.],
+  project([Reinforcement learning from code execution feedback.]),
   [
     #artifact([BF++ paper], citation-key: <liventsev2021bfpp>, url: "https://arxiv.org/abs/2101.09571")
     #h(1.1mm)
     #artifact([Cibi code], citation-key: <cibi-code>, url: "https://github.com/vadim0x60/cibi")
   ],
-)
 
-#work-row(
-  [A clinical-data exchange platform for syncing health data between providers.],
+  // RedKangaroo
+  tenure([2019], [RedKangaroo]),
+  project([A clinical-data exchange platform for syncing health data between providers.]),
   [],
-  years: [2019],
-  affiliation: [RedKangaroo],
-)
 
-#work-row(
-  [A system for mining tabular data from clinical notes.],
+  // Skoltech × Philips Research
+  tenure([2017—2019], [Skoltech × Philips Research]),
+  project([A system for mining tabular data from clinical notes.]),
   [
     #artifact([Deep Text Prior], citation-key: <liventsev2019deep>, url: "https://doi.org/10.1007/978-3-030-30493-5_26")
     #h(1.1mm)
     #artifact([Active learning], citation-key: <shelmanov2019active>, url: "https://doi.org/10.1109/BIBM47256.2019.8983157")
   ],
-  years: [2017—2019],
-  affiliation: [Skoltech × Philips Research],
-)
 
-#work-row(
-  [A web app for building chatbots with rules and flowcharts.],
+  // BotEngine
+  tenure([2017], [BotEngine]),
+  project([A web app for building chatbots with rules and flowcharts.]),
   [],
-  years: [2017],
-  affiliation: [BotEngine],
-)
 
-#work-row(
-  [A language-agnostic code completion system.],
+  // HSE × ISPRAS
+  tenure([2013—2017], [HSE × ISPRAS]),
+  project([A language-agnostic code completion system.]),
   [],
-  years: [2013—2017],
-  affiliation: [HSE × ISPRAS],
-)
 
-#work-row(
-  [Swarm robotics algorithms for exploring a location.],
+  // LIT
+  tenure([2009—2013], [LIT]),
+  project([Swarm robotics algorithms for exploring a location.]),
   [],
-  years: [2009—2013],
-  affiliation: [LIT],
+
+  // Row separators: full-width lines mark group boundaries; within a
+  // merged affiliation the line skips the left column so the cell reads
+  // as a single span.
+  grid.hline(y: 1, stroke: .2mm + faint),
+  grid.hline(y: 2, start: 1, end: 3, stroke: .2mm + faint),
+  grid.hline(y: 3, stroke: .2mm + faint),
+  grid.hline(y: 4, start: 1, end: 3, stroke: .2mm + faint),
+  grid.hline(y: 5, start: 1, end: 3, stroke: .2mm + faint),
+  grid.hline(y: 6, start: 1, end: 3, stroke: .2mm + faint),
+  grid.hline(y: 7, stroke: .2mm + faint),
+  grid.hline(y: 8, stroke: .2mm + faint),
+  grid.hline(y: 9, stroke: .2mm + faint),
+  grid.hline(y: 10, stroke: .2mm + faint),
+  grid.hline(y: 11, stroke: .2mm + faint),
+  grid.hline(y: 12, stroke: .2mm + faint),
 )
 
 // The bibliography is the single directory for publications and other links;
