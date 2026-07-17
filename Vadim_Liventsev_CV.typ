@@ -28,14 +28,14 @@
         align: center,
         qr,
         [
-          #text(size: 7pt, weight: 700, fill: ink)[vadim.me · L2]\
+          #text(size: 7pt, weight: 700, fill: ink)[vadim.me]\
           #text(size: 7pt, fill: muted)[Scan for the live profile and current links.]
         ],
       )
     ],
     [
       #text(size: 7pt, weight: 700, fill: ink)[PRINT-FRIENDLY]\
-      #text(size: 7pt, fill: muted)[Full links and references on page 2.]
+      #text(size: 7pt, fill: muted)[Numbered references and links on page 2.]
     ],
   )
 ]
@@ -77,15 +77,7 @@
   body,
 )
 
-#let link-key(key) = text(
-  size: 5.7pt,
-  weight: 800,
-  tracking: .04em,
-  fill: accent,
-  key,
-)
-
-#let contact(marker, label, url: none, key: none) = box[
+#let contact(marker, label, url: none, citation-key: none) = box[
   #text(size: 7.8pt, weight: 800, fill: accent)[#marker]
   #h(.35em)
   #if url == none {
@@ -93,23 +85,16 @@
   } else {
     link(url)[
       #text(size: 7.8pt, weight: 550, fill: accent, label)
-      #if key != none {
-        h(.35em)
-        link-key(key)
-      }
     ]
+    if citation-key != none {
+      h(.35em)
+      text(size: 6.75pt, weight: 600, fill: muted)[#cite(citation-key)]
+    }
   }
 ]
 
-#let artifact(label, url: none, key: none) = {
+#let artifact(label, citation-key: none, url: none) = {
   let external = url != none
-  let label-content = [
-    #label
-    #if external {
-      h(.75mm)
-      link-key(key)
-    }
-  ]
   let badge = box(
     inset: (x: 1.65mm, y: .8mm),
     radius: 99pt,
@@ -120,33 +105,17 @@
       weight: 700,
       tracking: .01em,
       fill: if external { rgb("#0f579f") } else { rgb("#6b7075") },
-      label-content,
+      label,
     ),
   )
-  if external { link(url, badge) } else { badge }
+  box[
+    #if external { link(url, badge) } else { badge }
+    #if citation-key != none {
+      h(.55mm)
+      text(size: 6.75pt, weight: 600, fill: muted)[#cite(citation-key)]
+    }
+  ]
 }
-
-#let cited-artifact(label, citation-key, url: none, key: none) = box[
-  #artifact(label, url: url, key: key)
-  #h(.55mm)
-  #text(size: 6.75pt, weight: 600, fill: muted)[#cite(citation-key)]
-]
-
-#let link-entry(key, label, url, display: none) = block(
-  below: 1.7mm,
-  [
-    #grid(
-      columns: (7.5mm, 1fr),
-      column-gutter: 1.5mm,
-      align: top,
-      text(size: 6.4pt, weight: 800, tracking: .04em, fill: accent, key),
-      [
-        #text(size: 7.35pt, weight: 680, fill: ink)[#label]\
-        #link(url)[#text(size: 6.9pt, fill: rgb("#41464b"))[#if display == none { url } else { display }]]
-      ],
-    )
-  ],
-)
 
 #let project(body) = grid(
   columns: (1fr,),
@@ -206,13 +175,13 @@
 #v(3.4mm)
 #contact([•], [London, UK])
 #h(4mm)
-#contact([\@], [hi\@vadim.me], url: "mailto:hi@vadim.me", key: [L1])
+#contact([\@], [hi\@vadim.me], url: "mailto:hi@vadim.me", citation-key: <email>)
 #h(4mm)
-#contact([↗], [vadim.me], url: "https://vadim.me", key: [L2])
+#contact([↗], [vadim.me], url: "https://vadim.me", citation-key: <website>)
 #h(4mm)
-#contact([⌘], [github.com/vadim0x60], url: "https://github.com/vadim0x60", key: [L3])
+#contact([⌘], [github.com/vadim0x60], url: "https://github.com/vadim0x60", citation-key: <github-profile>)
 #h(4mm)
-#contact([§], [Google Scholar], url: "https://scholar.google.com/citations?user=tpB0Uw8AAAAJ", key: [L4])
+#contact([§], [Google Scholar], url: "https://scholar.google.com/citations?user=tpB0Uw8AAAAJ", citation-key: <google-scholar>)
 
 #v(4.2mm)
 #line(length: 100%, stroke: .55mm + ink)
@@ -223,7 +192,7 @@
   columns: (1fr, auto),
   align: (left + bottom, right + bottom),
   section-title[SELECTED AI & SOFTWARE WORK],
-  text(size: 7.1pt, fill: muted)[Citations resolve to the selected publications on page 2.],
+  text(size: 7.1pt, fill: muted)[Reference numbers resolve to links and publications on page 2.],
 )
 
 #v(2.5mm)
@@ -240,7 +209,7 @@
 
 #work-row(
   [An LLM coding harness for manipulating 3D models.],
-  [#artifact([ideatura.ai], url: "https://ideatura.ai", key: [L8])],
+  [#artifact([ideatura.ai], citation-key: <ideatura>, url: "https://ideatura.ai")],
   years: [2025—2026],
   affiliation: [Ideatura],
 )
@@ -260,9 +229,9 @@
 #work-row(
   [Multi-agent coding frameworks combining LLMs with genetic-programming principles.],
   [
-    #cited-artifact([SEIDR paper], <grishina2025seidr>, url: "https://doi.org/10.1145/3719351", key: [L9])
+    #artifact([SEIDR paper], citation-key: <grishina2025seidr>, url: "https://doi.org/10.1145/3719351")
     #h(1.1mm)
-    #artifact([Code], url: "https://github.com/vadim0x60/seidr", key: [L10])
+    #artifact([Code], citation-key: <seidr-code>, url: "https://github.com/vadim0x60/seidr")
   ],
   years: [2019—2024],
   affiliation: [TU/e × Philips Research],
@@ -271,29 +240,29 @@
 #work-row(
   [Structural language models for source code.],
   [
-    #cited-artifact([Tree VAE], <liventsev2025tree>, url: "https://doi.org/10.1109/ACCESS.2025.3532522", key: [L11])
+    #artifact([Tree VAE], citation-key: <liventsev2025tree>, url: "https://doi.org/10.1109/ACCESS.2025.3532522")
     #h(1.1mm)
-    #artifact([Code], url: "https://github.com/vadim0x60/autoencoderopt", key: [L12])
+    #artifact([Code], citation-key: <tree-vae-code>, url: "https://github.com/vadim0x60/autoencoderopt")
   ],
 )
 
 #work-row(
   [Reinforcement-learning environments for healthcare, spanning vision and structured data.],
   [
-    #cited-artifact([Paper], <liventsev2021simulators>, url: "https://doi.org/10.3389/frai.2021.798659", key: [L13])
+    #artifact([Paper], citation-key: <liventsev2021simulators>, url: "https://doi.org/10.3389/frai.2021.798659")
     #h(1.1mm)
-    #artifact([HeartPole], url: "https://github.com/vadim0x60/heartpole", key: [L14])
+    #artifact([HeartPole], citation-key: <heartpole-code>, url: "https://github.com/vadim0x60/heartpole")
     #h(1.1mm)
-    #artifact([Auto-ALS], url: "https://github.com/vadim0x60/auto-als", key: [L15])
+    #artifact([Auto-ALS], citation-key: <auto-als-code>, url: "https://github.com/vadim0x60/auto-als")
   ],
 )
 
 #work-row(
   [Reinforcement learning from code-execution feedback.],
   [
-    #cited-artifact([BF++ paper], <liventsev2021bfpp>, url: "https://arxiv.org/abs/2101.09571", key: [L16])
+    #artifact([BF++ paper], citation-key: <liventsev2021bfpp>, url: "https://arxiv.org/abs/2101.09571")
     #h(1.1mm)
-    #artifact([Cibi code], url: "https://github.com/vadim0x60/cibi", key: [L17])
+    #artifact([Cibi code], citation-key: <cibi-code>, url: "https://github.com/vadim0x60/cibi")
   ],
 )
 
@@ -307,9 +276,9 @@
 #work-row(
   [A system for mining tabular data from clinical notes.],
   [
-    #cited-artifact([Deep Text Prior], <liventsev2019deep>, url: "https://doi.org/10.1007/978-3-030-30493-5_26", key: [L18])
+    #artifact([Deep Text Prior], citation-key: <liventsev2019deep>, url: "https://doi.org/10.1007/978-3-030-30493-5_26")
     #h(1.1mm)
-    #cited-artifact([Active learning], <shelmanov2019active>, url: "https://doi.org/10.1109/BIBM47256.2019.8983157", key: [L19])
+    #artifact([Active learning], citation-key: <shelmanov2019active>, url: "https://doi.org/10.1109/BIBM47256.2019.8983157")
   ],
   years: [2017—2019],
   affiliation: [Skoltech × Philips Research],
@@ -336,65 +305,19 @@
   affiliation: [LIT],
 )
 
-// The bibliography is generated from publications.bib; citation order and
-// formatting are controlled by the selected CSL style.
+// The bibliography is the single directory for publications and other links;
+// citation order and formatting are controlled by the selected CSL style.
 #pagebreak()
 #section-title[REFERENCES & LINKS]
 #v(2.5mm)
 #line(length: 100%, stroke: .55mm + ink)
 #v(4mm)
-#text(size: 8.65pt, fill: muted)[L-keys match links on page 1; additional profile links are included here. Every destination remains clickable in the PDF.]
+#text(size: 8.65pt, fill: muted)[Reference numbers match every linked item on page 1. Additional profile links are included below; every destination remains clickable in the PDF.]
 #v(4mm)
-
-#text(size: 8.2pt, weight: 760, tracking: .1em, fill: black)[SELECTED PUBLICATIONS]
-#v(2.5mm)
 
 #{
   set text(size: 8.3pt)
   set par(leading: .42em, spacing: 3mm)
   show link: set text(size: 7.2pt)
-  bibliography("publications.bib", style: "ieee", title: none)
+  bibliography("publications.bib", style: "ieee", title: none, full: true)
 }
-
-#v(4mm)
-#text(size: 8.2pt, weight: 760, tracking: .1em, fill: black)[LINK DIRECTORY]
-#v(1.5mm)
-#line(length: 100%, stroke: .25mm + faint)
-#v(3mm)
-
-#grid(
-  columns: (1fr, 1fr),
-  column-gutter: 8mm,
-  align: top,
-  [
-    #text(size: 6.7pt, weight: 780, tracking: .1em, fill: muted)[CONTACT & PROFILES]
-    #v(2.2mm)
-    #link-entry([L1], [Email], "mailto:hi@vadim.me", display: "hi@vadim.me")
-    #link-entry([L2], [Personal website], "https://vadim.me")
-    #link-entry([L3], [GitHub profile], "https://github.com/vadim0x60")
-    #link-entry([L4], [Google Scholar], "https://scholar.google.com/citations?user=tpB0Uw8AAAAJ")
-    #link-entry([L5], [Publication list], "https://vadim.me/publications/")
-    #link-entry([L6], [LinkedIn], "https://www.linkedin.com/in/vadim-liventsev-6b56b9196/")
-    #link-entry([L7], [ORCID], "https://orcid.org/0000-0002-6670-6909")
-
-    #v(1.8mm)
-    #text(size: 6.7pt, weight: 780, tracking: .1em, fill: muted)[CURRENT WORK]
-    #v(2.2mm)
-    #link-entry([L8], [Ideatura], "https://ideatura.ai")
-  ],
-  [
-    #text(size: 6.7pt, weight: 780, tracking: .1em, fill: muted)[PAPERS & CODE]
-    #v(2.2mm)
-    #link-entry([L9], [SEIDR paper], "https://doi.org/10.1145/3719351")
-    #link-entry([L10], [SEIDR source code], "https://github.com/vadim0x60/seidr")
-    #link-entry([L11], [Tree VAE paper], "https://doi.org/10.1109/ACCESS.2025.3532522")
-    #link-entry([L12], [Tree VAE source code], "https://github.com/vadim0x60/autoencoderopt")
-    #link-entry([L13], [Patient simulators paper], "https://doi.org/10.3389/frai.2021.798659")
-    #link-entry([L14], [HeartPole source code], "https://github.com/vadim0x60/heartpole")
-    #link-entry([L15], [Auto-ALS source code], "https://github.com/vadim0x60/auto-als")
-    #link-entry([L16], [BF++ paper], "https://arxiv.org/abs/2101.09571")
-    #link-entry([L17], [Cibi source code], "https://github.com/vadim0x60/cibi")
-    #link-entry([L18], [Deep Text Prior paper], "https://doi.org/10.1007/978-3-030-30493-5_26")
-    #link-entry([L19], [Active learning paper], "https://doi.org/10.1109/BIBM47256.2019.8983157")
-  ],
-)
