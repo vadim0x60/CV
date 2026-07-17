@@ -28,22 +28,19 @@
         align: center,
         qr,
         [
-          #text(size: 7pt, weight: 700, fill: ink)[vadim.me]\
-          #text(size: 7pt, fill: muted)[Scan for the live profile and current links.]
+          #text(size: 7pt, weight: 700, fill: ink)[vadim.me]
         ],
       )
     ],
     [
-      #text(size: 7pt, weight: 700, fill: ink)[PRINT-FRIENDLY]\
       #text(size: 7pt, fill: muted)[Numbered references and links on page 2.]
     ],
   )
 ]
 
 #set document(
-  title: "Vadim Liventsev — Selected Work",
+  title: "Research and Development",
   author: "Vadim Liventsev",
-  description: "Selected AI research and engineering work by Vadim Liventsev",
 )
 #set page(
   paper: "a4",
@@ -145,14 +142,6 @@
   ],
 )
 
-// Masthead
-#grid(
-  columns: (1fr, auto),
-  align: (left, right),
-  nav-label(text(fill: ink)[VADIM LIVENTSEV]),
-  nav-label[SELECTED WORK · 2009—2026],
-)
-
 #v(4mm)
 #grid(
   columns: (1fr, 77mm),
@@ -161,15 +150,8 @@
   [
     #text(size: 27pt, weight: 700, tracking: -.035em, fill: black)[Vadim Liventsev]
     #v(1.7mm)
-    #text(size: 10.3pt, weight: 650, fill: accent)[Head of AI · Machine Learning Scientist & Engineer]
-  ],
-  [
-    #set par(justify: false)
-    #align(right)[#text(size: 8.65pt, fill: rgb("#41464b"))[
-      AI research and engineering across program synthesis, agentic coding,
-      machine learning for health, and tools for structured and 3D data.
-    ]]
-  ],
+    #text(size: 10.3pt, weight: 650, fill: accent)[Machine Learning Scientist & Engineer]
+  ]
 )
 
 #v(3.4mm)
@@ -191,8 +173,7 @@
 #grid(
   columns: (1fr, auto),
   align: (left + bottom, right + bottom),
-  section-title[SELECTED AI & SOFTWARE WORK],
-  text(size: 7.1pt, fill: muted)[Reference numbers resolve to links and publications on page 2.],
+  section-title[Research and Development],
 )
 
 #v(2.5mm)
