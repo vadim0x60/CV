@@ -1,29 +1,27 @@
-HTML := Vadim_Liventsev_CV.html
+TYP  := Vadim_Liventsev_CV.typ
+BIB  := publications.bib
 PDF  := Vadim_Liventsev_CV.pdf
 
-# Headless browser used to render the PDF. Override with:
-#   make CHROME=/path/to/chromium
-CHROME ?= /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+TYPST ?= typst
 
-.PHONY: all open clean help
+.PHONY: all open watch clean help
 
 all: $(PDF)
 
-$(PDF): $(HTML)
-	"$(CHROME)" \
-	  --headless=new \
-	  --disable-gpu \
-	  --no-pdf-header-footer \
-	  --print-to-pdf="$@" \
-	  "file://$(CURDIR)/$<"
+$(PDF): $(TYP) $(BIB)
+	$(TYPST) compile "$<" "$@"
 
 open: $(PDF)
 	open "$<"
+
+watch:
+	$(TYPST) watch "$(TYP)" "$(PDF)"
 
 clean:
 	rm -f $(PDF)
 
 help:
-	@echo "make        build $(PDF) from $(HTML)"
+	@echo "make        build $(PDF) from $(TYP)"
 	@echo "make open   build, then open the PDF"
+	@echo "make watch  rebuild the PDF when the source changes"
 	@echo "make clean  remove the PDF"
