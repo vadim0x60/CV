@@ -149,10 +149,8 @@
 )
 
 #let project(body) = grid(
-  columns: (1.35mm, 1fr),
-  column-gutter: 1.85mm,
+  columns: (1fr,),
   align: top,
-  box(height: 1em)[#text(size: 8.2pt, fill: accent)[•]],
   text(size: 8.25pt, fill: rgb("#282c30"), body),
 )
 
