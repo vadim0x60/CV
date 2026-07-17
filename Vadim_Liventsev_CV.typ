@@ -248,7 +248,7 @@
 )
 
 #work-row(
-  [A medical-device support-ticket classifier identifying common defect types.],
+  [A medical-device support ticket classifier identifying common defect types.],
   [#artifact([Private work])],
   years: [2024—2025],
   affiliation: [Philips Research],
@@ -332,7 +332,7 @@
 )
 
 #work-row(
-  [Swarm-robotics algorithms for exploring a location.],
+  [Swarm robotics algorithms for exploring a location.],
   [#artifact([No public release])],
   years: [2009—2013],
   affiliation: [LIT],
