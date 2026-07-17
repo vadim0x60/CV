@@ -249,14 +249,14 @@
 
 #work-row(
   [A medical-device support ticket classifier identifying common defect types.],
-  [#artifact([Private work])],
+  [],
   years: [2024—2025],
   affiliation: [Philips Research],
 )
 
 #work-row(
   [A retrieval-based slide-deck generator for employee training.],
-  [#artifact([Private work])],
+  [],
 )
 
 #work-row(
@@ -301,7 +301,7 @@
 
 #work-row(
   [A clinical-data exchange platform for syncing health data between providers.],
-  [#artifact([Archived / private])],
+  [],
   years: [2019],
   affiliation: [RedKangaroo],
 )
@@ -319,21 +319,21 @@
 
 #work-row(
   [A web app for building chatbots with rules and flowcharts.],
-  [#artifact([No public release])],
+  [],
   years: [2017],
   affiliation: [BotEngine],
 )
 
 #work-row(
   [A language-agnostic code-completion system.],
-  [#artifact([No public release])],
+  [],
   years: [2013—2017],
   affiliation: [HSE × ISPRAS],
 )
 
 #work-row(
   [Swarm robotics algorithms for exploring a location.],
-  [#artifact([No public release])],
+  [],
   years: [2009—2013],
   affiliation: [LIT],
 )
