@@ -239,7 +239,7 @@
 )
 
 #work-row(
-  [Reinforcement learning from code-execution feedback.],
+  [Reinforcement learning from code execution feedback.],
   [
     #artifact([BF++ paper], citation-key: <liventsev2021bfpp>, url: "https://arxiv.org/abs/2101.09571")
     #h(1.1mm)
@@ -273,7 +273,7 @@
 )
 
 #work-row(
-  [A language-agnostic code-completion system.],
+  [A language-agnostic code completion system.],
   [],
   years: [2013—2017],
   affiliation: [HSE × ISPRAS],
