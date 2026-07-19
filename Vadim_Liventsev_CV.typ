@@ -111,7 +111,7 @@
   [
     #grid(
       columns: (1fr, 11mm),
-      column-gutter: 3mm,
+      column-gutter: 6mm,
       align: (right + horizon, right + top),
       [
         #grid(
