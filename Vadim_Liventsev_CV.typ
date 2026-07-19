@@ -4,9 +4,18 @@
 #let muted = rgb("#62676d")
 #let faint = rgb("#e0e0e0")
 #let paper = rgb("#fafafa")
-#let accent = rgb("#1565c0")
-#let accent-soft = rgb("#e9f2fc")
+#let accent = rgb("#315f7d")
+#let accent-soft = rgb("#eef3f6")
 #let private-bg = rgb("#f0f1f2")
+
+#let themes = (
+  "code-generation": (label: [Code generation], mark: [C], color: rgb("#3c6e91")),
+  "training-models": (label: [Training models], mark: [T], color: rgb("#765d8d")),
+  "managing-people": (label: [Managing people], mark: [P], color: rgb("#a56a43")),
+  "multi-agent": (label: [Multi-agent systems], mark: [A], color: rgb("#3c7a70")),
+  "reinforcement-learning": (label: [Reinforcement learning], mark: [R], color: rgb("#9b4f5f")),
+  "healthtech": (label: [Healthtech], mark: [H], color: rgb("#5f7d4e")),
+)
 
 #let distance = (
   xs: .5mm,
@@ -76,12 +85,12 @@
     inset: (x: distance.md, y: distance.sm),
     radius: 99pt,
     fill: if external { accent-soft } else { private-bg },
-    stroke: .22mm + if external { rgb("#b9d3ef") } else { rgb("#d7dadd") },
+    stroke: .22mm + if external { rgb("#c8d7e0") } else { rgb("#d7dadd") },
     text(
       size: 6.75pt,
       weight: 700,
       tracking: .01em,
-      fill: if external { rgb("#0f579f") } else { rgb("#6b7075") },
+      fill: if external { accent } else { rgb("#6b7075") },
       label,
     ),
   )
@@ -94,10 +103,55 @@
   ]
 }
 
-#let project(body) = grid(
-  columns: (1fr,),
-  align: top,
+#let theme-marker(theme-id) = {
+  let theme = themes.at(theme-id)
+  box(
+    width: 3.2mm,
+    height: 3.2mm,
+    radius: 99pt,
+    fill: theme.color,
+    align(
+      center + horizon,
+      text(size: 5.5pt, weight: 800, fill: white, theme.mark),
+    ),
+  )
+}
+
+#let theme-markers(theme-ids) = {
+  for (index, theme-id) in theme-ids.enumerate() {
+    if index > 0 { h(distance.sm) }
+    theme-marker(theme-id)
+  }
+}
+
+#let theme-key(theme-id) = {
+  let theme = themes.at(theme-id)
+  box[
+    #theme-marker(theme-id)
+    #h(distance.sm)
+    #text(size: 6.35pt, weight: 600, fill: muted, theme.label)
+  ]
+}
+
+#let theme-legend = grid(
+  columns: (auto, auto, auto),
+  column-gutter: distance.lg,
+  row-gutter: distance.sm,
+  align: (left + horizon,),
+  theme-key("code-generation"),
+  theme-key("training-models"),
+  theme-key("managing-people"),
+  theme-key("multi-agent"),
+  theme-key("reinforcement-learning"),
+  theme-key("healthtech"),
+)
+
+#let project(body, themes: ()) = grid(
+  columns: (1fr, auto),
+  column-gutter: distance.sm,
+  align: (left + top, right + top),
   text(size: 8.25pt, fill: rgb("#282c30"), body),
+  theme-markers(themes),
 )
 
 #let tenure(years, affiliation) = [
@@ -148,11 +202,13 @@
 #v(distance.lg)
 #grid(
   columns: (1fr, auto),
-  align: (left + bottom, right + bottom),
+  column-gutter: distance.lg,
+  align: (left + horizon, right + horizon),
   section-title[Research and Development],
+  theme-legend,
 )
 
-#v(distance.lg)
+#v(distance.md)
 #line(length: 100%, stroke: .25mm + faint)
 #grid(
   columns: (36mm, 1fr, 49mm),
@@ -172,12 +228,18 @@
 
   // Ideatura
   tenure([2025—2026], [Ideatura]),
-  project([An LLM coding harness for manipulating 3D models.]),
+  project(
+    [An LLM coding harness for manipulating 3D models.],
+    themes: ("code-generation",),
+  ),
   [#artifact([ideatura.ai], citation-key: <ideatura>, url: "https://ideatura.ai")],
 
   // Philips Research — spans two projects
   grid.cell(rowspan: 2, tenure([2024—2025], [Philips Research])),
-  project([A medical-device support ticket classifier identifying common defect types.]),
+  project(
+    [A medical-device support ticket classifier identifying common defect types.],
+    themes: ("training-models", "healthtech"),
+  ),
   grid.cell(
     rowspan: 2,
     [#artifact([Speedformers], citation-key: <speedformers-code>, url: "https://github.com/philips-labs/speedformers")],
@@ -197,7 +259,10 @@
       )
     ]),
   ),
-  project([Multi-agent coding frameworks combining LLMs with genetic-programming principles.]),
+  project(
+    [Multi-agent coding frameworks combining LLMs with genetic-programming principles.],
+    themes: ("code-generation", "multi-agent"),
+  ),
   [
     #artifact([SEIDR library], citation-key: <seidr-code>, url: "https://github.com/vadim0x60/seidr")
     #h(distance.sm)
@@ -205,11 +270,17 @@
     #h(distance.sm)
     #artifact([Neurogenetic programming], citation-key: <liventsev2021neurogenetic>, url: "https://doi.org/10.1145/3719351")
   ],
-  project([Structural language models for source code.]),
+  project(
+    [Structural language models for source code.],
+    themes: ("code-generation", "training-models"),
+  ),
   [
     #artifact([Tree VAE], citation-key: <liventsev2025tree>, url: "https://doi.org/10.1109/ACCESS.2025.3532522")
   ],
-  project([Reinforcement-learning environments for healthcare, spanning vision and structured data.]),
+  project(
+    [Reinforcement-learning environments for healthcare, spanning vision and structured data.],
+    themes: ("reinforcement-learning", "healthtech"),
+  ),
   [
     #artifact([Simulators paper], citation-key: <liventsev2021simulators>, url: "https://doi.org/10.3389/frai.2021.798659")
     #h(distance.sm)
@@ -219,7 +290,10 @@
     #h(distance.sm)
     #artifact([Auto-ALS], citation-key: <auto-als-code>, url: "https://github.com/vadim0x60/auto-als")
   ],
-  project([Reinforcement learning from code execution feedback.]),
+  project(
+    [Reinforcement learning from code execution feedback.],
+    themes: ("code-generation", "training-models", "reinforcement-learning"),
+  ),
   [
     #artifact([BF++ study], citation-key: <liventsev2021bfpp>, url: "https://arxiv.org/abs/2101.09571")
     #h(distance.sm)
@@ -228,12 +302,18 @@
 
   // RedKangaroo
   tenure([2019], [RedKangaroo]),
-  project([A clinical-data exchange platform for syncing health data between providers.]),
+  project(
+    [A clinical-data exchange platform for syncing health data between providers.],
+    themes: ("healthtech",),
+  ),
   [],
 
   // Skoltech × Philips Research
   tenure([2017—2019], [Skoltech × Philips Research]),
-  project([A system for mining tabular data from clinical notes.]),
+  project(
+    [A system for mining tabular data from clinical notes.],
+    themes: ("training-models", "healthtech"),
+  ),
   [
     #artifact([Deep Text Prior], citation-key: <liventsev2019deep>, url: "https://doi.org/10.1007/978-3-030-30493-5_26")
     #h(distance.sm)
@@ -242,17 +322,26 @@
 
   // BotEngine
   tenure([2017], [BotEngine]),
-  project([A web app for building chatbots with rules and flowcharts.]),
+  project(
+    [A web app for building chatbots with rules and flowcharts.],
+    themes: ("managing-people",),
+  ),
   [],
 
   // HSE × ISPRAS
   tenure([2013—2017], [HSE × ISPRAS]),
-  project([A language-agnostic code completion system.]),
+  project(
+    [A language-agnostic code completion system.],
+    themes: ("code-generation", "training-models"),
+  ),
   [],
 
   // LIT
   tenure([2009—2013], [LIT]),
-  project([Swarm robotics algorithms for exploring a locality.]),
+  project(
+    [Swarm robotics algorithms for exploring a locality.],
+    themes: ("multi-agent",),
+  ),
   [],
 
   // Row separators: full-width lines mark group boundaries; within a
