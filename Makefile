@@ -8,8 +8,6 @@ TYPST ?= typst
 
 all: $(PDF)
 
-export: $(PDF)
-
 $(PDF): $(TYP) $(BIB)
 	$(TYPST) compile "$<" "$@"
 
