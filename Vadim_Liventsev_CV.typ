@@ -74,9 +74,7 @@
   body,
 )
 
-#let contact(marker, label, url: none, citation-key: none) = box[
-  #text(size: 7.8pt, weight: 800, fill: accent)[#marker]
-  #h(.35em)
+#let contact(label, url: none, citation-key: none) = box[
   #if url == none {
     text(size: 7.8pt, weight: 550, fill: muted, label)
   } else {
@@ -128,30 +126,35 @@
 
 #v(4mm)
 #grid(
-  columns: (1fr, 77mm),
+  columns: (1fr, 70mm),
   column-gutter: 10mm,
   align: (left + bottom, right + bottom),
   [
     #text(size: 27pt, weight: 700, tracking: -.035em, fill: black)[Vadim Liventsev]
-    #v(3mm)
-    #text(size: 10.3pt, weight: 650, fill: accent)[Machine Learning Scientist & Engineer]
-  ]
+    #v(2.5mm)
+    #text(size: 10.3pt, weight: 550, fill: accent)[Machine Learning Scientist & Engineer]
+  ],
+  [
+    #grid(
+      columns: (1fr,),
+      row-gutter: 1.15mm,
+      align: right,
+      contact([London, UK]),
+      contact([hire\@vadim.me], url: "mailto:agi@vadim.me"),
+      [
+        #contact([GitHub], url: "https://github.com/vadim0x60", citation-key: <github-profile>)
+        #h(3mm)
+        #contact([Google Scholar], url: "https://scholar.google.com/citations?user=tpB0Uw8AAAAJ", citation-key: <google-scholar>)
+      ],
+    )
+  ],
 )
 
-#v(3.4mm)
-#contact([], [London, UK])
-#h(4mm)
-#contact([\@], [hire\@vadim.me], url: "mailto:agi@vadim.me")
-#h(4mm)
-#contact([⌘], [Github], url: "https://github.com/vadim0x60", citation-key: <github-profile>)
-#h(4mm)
-#contact([§], [Google Scholar], url: "https://scholar.google.com/citations?user=tpB0Uw8AAAAJ", citation-key: <google-scholar>)
-
-#v(4.2mm)
-#line(length: 100%, stroke: .55mm + ink)
+#v(3.5mm)
+#line(length: 100%, stroke: .35mm + accent)
 
 // Selected work
-#v(4mm)
+#v(3mm)
 #grid(
   columns: (1fr, auto),
   align: (left + bottom, right + bottom),
