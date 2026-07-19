@@ -189,9 +189,11 @@
   // Philips Research — spans two projects
   grid.cell(rowspan: 2, tenure([2024—2025], [Philips Research])),
   project([A medical-device support ticket classifier identifying common defect types.]),
-  [],
+  grid.cell(
+    rowspan: 2,
+    [#artifact([Speedformers], citation-key: <speedformers-code>, url: "https://github.com/philips-labs/speedformers")],
+  ),
   project([A retrieval-based slide deck generator for employee training.]),
-  [],
 
   // TU/e × Philips Research — spans four projects
   grid.cell(rowspan: 4, tenure([2019—2024], [TU/e × Philips Research])),
