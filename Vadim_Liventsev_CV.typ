@@ -185,7 +185,18 @@
   project([A retrieval-based slide deck generator for employee training.]),
 
   // TU/e × Philips Research — spans four projects
-  grid.cell(rowspan: 4, tenure([2019—2024], [TU/e × Philips Research])),
+  grid.cell(
+    rowspan: 4,
+    tenure([2019—2024], [
+      TU/e × Philips Research
+      #v(distance.md)
+      #artifact(
+        [PhD thesis],
+        citation-key: <liventsev2026deep>,
+        url: "https://research.tue.nl/en/publications/deep-program-induction-for-personal-healthcare/",
+      )
+    ]),
+  ),
   project([Multi-agent coding frameworks combining LLMs with genetic-programming principles.]),
   [
     #artifact([SEIDR library], citation-key: <seidr-code>, url: "https://github.com/vadim0x60/seidr")
