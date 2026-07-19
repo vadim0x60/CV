@@ -166,7 +166,7 @@
   columns: (36mm, 1fr, 49mm),
   column-gutter: 4mm,
   inset: (y: 1.7mm),
-  text(size: 6.8pt, weight: 750, tracking: .11em, fill: rgb("#70757a"))[WHEN / WHERE],
+  text(size: 6.8pt, weight: 750, tracking: .11em, fill: rgb("#70757a"))[AFFILIATION],
   text(size: 6.8pt, weight: 750, tracking: .11em, fill: rgb("#70757a"))[WHAT I BUILT],
   text(size: 6.8pt, weight: 750, tracking: .11em, fill: rgb("#70757a"))[PUBLIC ARTIFACTS],
 )
@@ -285,7 +285,7 @@
   project([Introduction to Artificial Humour]),
 
   [#text(size: 7.35pt, weight: 700, fill: accent)[2019—2021] #text(size: 7.35pt, fill: muted)[· Netology]],
-  project([Machine Learning, Computer Vision, Project Management]),
+  project([Machine Learning]),
 
   [#text(size: 7.35pt, weight: 700, fill: accent)[2021—present] #text(size: 7.35pt, fill: muted)[· Eindhoven]],
   [
