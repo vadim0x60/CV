@@ -197,12 +197,12 @@
   project([Structural language models for source code.]),
   [
     #artifact([Tree VAE], citation-key: <liventsev2025tree>, url: "https://doi.org/10.1109/ACCESS.2025.3532522")
-    #h(distance.sm)
-    #artifact([Code], citation-key: <tree-vae-code>, url: "https://github.com/vadim0x60/autoencoderopt")
   ],
   project([Reinforcement-learning environments for healthcare, spanning vision and structured data.]),
   [
-    #artifact([Paper], citation-key: <liventsev2021simulators>, url: "https://doi.org/10.3389/frai.2021.798659")
+    #artifact([Simulators paper], citation-key: <liventsev2021simulators>, url: "https://doi.org/10.3389/frai.2021.798659")
+    #h(distance.sm)
+    #artifact([Benchmarking paper], citation-key: <liventsev2021simulators>, url: "https://doi.org/10.3389/frai.2021.798659")
     #h(distance.sm)
     #artifact([HeartPole], citation-key: <heartpole-code>, url: "https://github.com/vadim0x60/heartpole")
     #h(distance.sm)
