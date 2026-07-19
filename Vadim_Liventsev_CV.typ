@@ -31,10 +31,7 @@
           #text(size: 7pt, weight: 700, fill: ink)[vadim.me]
         ],
       )
-    ],
-    [
-      #text(size: 7pt, fill: muted)[Numbered references and links on page 2.]
-    ],
+    ]
   )
 ]
 
@@ -45,7 +42,7 @@
 #set page(
   paper: "a4",
   margin: (top: 12mm, right: 13mm, bottom: 21mm, left: 13mm),
-  footer-descent: 7.5mm,
+  footer-descent: 5mm,
   fill: paper,
   footer: footer,
 )
