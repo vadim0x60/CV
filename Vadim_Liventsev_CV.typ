@@ -33,13 +33,13 @@
       )
     ],
     [
-      #text(size: 7pt, fill: muted)[Numbered references and links on page 2.]
+      #text(size: 7pt, fill: muted)[Numbered references and links on page 3.]
     ],
   )
 ]
 
 #set document(
-  title: "Research and Development",
+  title: "Research, Development, Teaching and Yapping",
   author: "Vadim Liventsev",
 )
 #set page(
@@ -139,7 +139,7 @@
 )
 
 #v(3.4mm)
-#contact([London, UK])
+#contact([], [London, UK])
 #h(4mm)
 #contact([\@], [hi\@vadim.me], url: "mailto:agi@vadim.me", citation-key: <email>)
 #h(4mm)
@@ -265,6 +265,79 @@
   grid.hline(y: 12, stroke: .2mm + faint),
 )
 
+// Teaching, courses, talks, and community work
+#pagebreak()
+#section-title[Teaching and Yapping]
+#v(2.5mm)
+#line(length: 100%, stroke: .25mm + faint)
+#grid(
+  columns: (36mm, 38mm, 1fr),
+  column-gutter: 4mm,
+  inset: (y: 1.7mm),
+  text(size: 6.8pt, weight: 750, tracking: .11em, fill: rgb("#70757a"))[WHEN / WHERE],
+  text(size: 6.8pt, weight: 750, tracking: .11em, fill: rgb("#70757a"))[FORMAT],
+  text(size: 6.8pt, weight: 750, tracking: .11em, fill: rgb("#70757a"))[COURSE, TALK, OR SERIES],
+)
+#line(length: 100%, stroke: .25mm + faint)
+
+#grid(
+  columns: (36mm, 38mm, 1fr),
+  rows: 15mm,
+  column-gutter: 4mm,
+  align: (left + horizon, left + horizon, left + horizon),
+
+  tenure([2018—2019], [Skoltech]),
+  project([Course author and instructor]),
+  project([Functional Programming with Clojure]),
+
+  tenure([2019], [Skoltech]),
+  project([Course author and instructor]),
+  project([Introduction to Artificial Humour]),
+
+  tenure([2019—2021], [Netology]),
+  project([Instructor and mentor]),
+  project([Machine Learning; Computer Vision; Project Management]),
+
+  tenure([2021—present], [Eindhoven]),
+  project([Organizer and producer]),
+  [
+    #project([Eindhoven Reinforcement Learning Seminar])
+    #v(1mm)
+    #artifact([Series], citation-key: <einreise>, url: "https://vadim.me/publications/einreise/")
+  ],
+
+  tenure([2023], [Online]),
+  project([Talk]),
+  [
+    #project([Fully Autonomous Programming with Large Language Models])
+    #v(1mm)
+    #artifact([Notes], citation-key: <seidr-talk>, url: "https://vadim.me/publications/seidr/")
+  ],
+
+  tenure([2022], [Online]),
+  project([One-hour explainer]),
+  [
+    #project([Deceptive Diversity of Modern RL Methods])
+    #v(1mm)
+    #artifact([Notes], citation-key: <rl-explainer>, url: "https://vadim.me/publications/rl/")
+  ],
+
+  tenure([2020], [Online]),
+  project([Tutorial]),
+  [
+    #project([Writing a Custom OpenAI Gym Environment])
+    #v(1mm)
+    #artifact([Tutorial], citation-key: <heartpole-tutorial>, url: "https://vadim.me/publications/heartpole/")
+  ],
+
+  grid.hline(y: 1, stroke: .2mm + faint),
+  grid.hline(y: 2, stroke: .2mm + faint),
+  grid.hline(y: 3, stroke: .2mm + faint),
+  grid.hline(y: 4, stroke: .2mm + faint),
+  grid.hline(y: 5, stroke: .2mm + faint),
+  grid.hline(y: 6, stroke: .2mm + faint),
+)
+
 // The bibliography is the single directory for publications and other links;
 // citation order and formatting are controlled by the selected CSL style.
 #pagebreak()
@@ -272,7 +345,7 @@
 #v(2.5mm)
 #line(length: 100%, stroke: .55mm + ink)
 #v(4mm)
-#text(size: 8.65pt, fill: muted)[Reference numbers match every linked item on page 1. Additional profile links are included below; every destination remains clickable in the PDF.]
+#text(size: 8.65pt, fill: muted)[Reference numbers match linked items throughout the CV. Additional profile links are included below; every destination remains clickable in the PDF.]
 #v(4mm)
 
 #{
