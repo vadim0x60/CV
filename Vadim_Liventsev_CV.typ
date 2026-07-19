@@ -180,9 +180,11 @@
   grid.cell(rowspan: 4, tenure([2019—2024], [TU/e × Philips Research])),
   project([Multi-agent coding frameworks combining LLMs with genetic-programming principles.]),
   [
-    #artifact([SEIDR paper], citation-key: <grishina2025seidr>, url: "https://doi.org/10.1145/3719351")
+    #artifact([SEIDR library], citation-key: <seidr-code>, url: "https://github.com/vadim0x60/seidr")
     #h(1.1mm)
-    #artifact([Code], citation-key: <seidr-code>, url: "https://github.com/vadim0x60/seidr")
+    #artifact([SEIDR study], citation-key: <liventsev2023autonomous>, url: "https://doi.org/10.1145/3719351")
+    #h(1.1mm)
+    #artifact([Neurogenetic programming], citation-key: <liventsev2021neurogenetic>, url: "https://doi.org/10.1145/3719351")
   ],
   project([Structural language models for source code.]),
   [
@@ -200,9 +202,9 @@
   ],
   project([Reinforcement learning from code execution feedback.]),
   [
-    #artifact([BF++ paper], citation-key: <liventsev2021bfpp>, url: "https://arxiv.org/abs/2101.09571")
+    #artifact([BF++ study], citation-key: <liventsev2021bfpp>, url: "https://arxiv.org/abs/2101.09571")
     #h(1.1mm)
-    #artifact([Cibi code], citation-key: <cibi-code>, url: "https://github.com/vadim0x60/cibi")
+    #artifact([Cibi library], citation-key: <cibi-code>, url: "https://github.com/vadim0x60/cibi")
   ],
 
   // RedKangaroo
