@@ -231,7 +231,7 @@
 
   // LIT
   tenure([2009—2013], [LIT]),
-  project([Swarm robotics algorithms for exploring a location.]),
+  project([Swarm robotics algorithms for exploring a locality.]),
   [],
 
   // Row separators: full-width lines mark group boundaries; within a
