@@ -271,35 +271,30 @@
 #v(2.5mm)
 #line(length: 100%, stroke: .25mm + faint)
 #grid(
-  columns: (36mm, 38mm, 1fr),
+  columns: (36mm, 1fr),
   column-gutter: 4mm,
   inset: (y: 1.7mm),
   text(size: 6.8pt, weight: 750, tracking: .11em, fill: rgb("#70757a"))[WHEN / WHERE],
-  text(size: 6.8pt, weight: 750, tracking: .11em, fill: rgb("#70757a"))[FORMAT],
   text(size: 6.8pt, weight: 750, tracking: .11em, fill: rgb("#70757a"))[COURSE, TALK, OR SERIES],
 )
 #line(length: 100%, stroke: .25mm + faint)
 
 #grid(
-  columns: (36mm, 38mm, 1fr),
+  columns: (36mm, 1fr),
   rows: 15mm,
   column-gutter: 4mm,
-  align: (left + horizon, left + horizon, left + horizon),
+  align: (left + horizon, left + horizon),
 
   tenure([2018—2019], [Skoltech]),
-  project([Course author and instructor]),
   project([Functional Programming with Clojure]),
 
   tenure([2019], [Skoltech]),
-  project([Course author and instructor]),
   project([Introduction to Artificial Humour]),
 
   tenure([2019—2021], [Netology]),
-  project([Instructor and mentor]),
   project([Machine Learning; Computer Vision; Project Management]),
 
   tenure([2021—present], [Eindhoven]),
-  project([Organizer and producer]),
   [
     #project([Eindhoven Reinforcement Learning Seminar])
     #v(1mm)
