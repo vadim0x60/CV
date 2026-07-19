@@ -269,42 +269,30 @@
 #pagebreak()
 #section-title[Teaching and Yapping]
 #v(2.5mm)
-#line(length: 100%, stroke: .25mm + faint)
-#grid(
-  columns: (36mm, 1fr),
-  column-gutter: 4mm,
-  inset: (y: 1.7mm),
-  text(size: 6.8pt, weight: 750, tracking: .11em, fill: rgb("#70757a"))[WHEN / WHERE],
-  text(size: 6.8pt, weight: 750, tracking: .11em, fill: rgb("#70757a"))[COURSE, TALK, OR SERIES],
-)
-#line(length: 100%, stroke: .25mm + faint)
+#line(length: 100%, stroke: .55mm + ink)
+#v(3.5mm)
 
 #grid(
   columns: (36mm, 1fr),
-  rows: 15mm,
   column-gutter: 4mm,
-  align: (left + horizon, left + horizon),
+  row-gutter: 4.5mm,
+  align: (left + top, left + top),
 
-  tenure([2018—2019], [Skoltech]),
+  [#text(size: 7.35pt, weight: 700, fill: accent)[2018—2019] #text(size: 7.35pt, fill: muted)[· Skoltech]],
   project([Functional Programming with Clojure]),
 
-  tenure([2019], [Skoltech]),
+  [#text(size: 7.35pt, weight: 700, fill: accent)[2019] #text(size: 7.35pt, fill: muted)[· Skoltech]],
   project([Introduction to Artificial Humour]),
 
-  tenure([2019—2021], [Netology]),
-  project([Machine Learning; Computer Vision; Project Management]),
+  [#text(size: 7.35pt, weight: 700, fill: accent)[2019—2021] #text(size: 7.35pt, fill: muted)[· Netology]],
+  project([Machine Learning, Computer Vision, Project Management]),
 
-  tenure([2021—present], [Eindhoven]),
+  [#text(size: 7.35pt, weight: 700, fill: accent)[2021—present] #text(size: 7.35pt, fill: muted)[· Eindhoven]],
   [
     #project([Eindhoven Reinforcement Learning Seminar])
     #v(1mm)
     #artifact([Series], citation-key: <einreise>, url: "https://vadim.me/publications/einreise/")
   ],
-
-  grid.hline(y: 1, stroke: .2mm + faint),
-  grid.hline(y: 2, stroke: .2mm + faint),
-  grid.hline(y: 3, stroke: .2mm + faint),
-  grid.hline(y: 4, stroke: .2mm + faint),
 )
 
 // The bibliography is the single directory for publications and other links;
