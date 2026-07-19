@@ -141,11 +141,9 @@
 #v(3.4mm)
 #contact([], [London, UK])
 #h(4mm)
-#contact([\@], [hi\@vadim.me], url: "mailto:agi@vadim.me", citation-key: <email>)
+#contact([\@], [hire\@vadim.me], url: "mailto:agi@vadim.me")
 #h(4mm)
-#contact([↗], [vadim.me], url: "https://vadim.me", citation-key: <website>)
-#h(4mm)
-#contact([⌘], [github.com/vadim0x60], url: "https://github.com/vadim0x60", citation-key: <github-profile>)
+#contact([⌘], [Github], url: "https://github.com/vadim0x60", citation-key: <github-profile>)
 #h(4mm)
 #contact([§], [Google Scholar], url: "https://scholar.google.com/citations?user=tpB0Uw8AAAAJ", citation-key: <google-scholar>)
 
