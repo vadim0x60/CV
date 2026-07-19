@@ -139,9 +139,9 @@
 )
 
 #v(3.4mm)
-#contact([•], [London, UK])
+#contact([London, UK])
 #h(4mm)
-#contact([\@], [hi\@vadim.me], url: "mailto:hi@vadim.me", citation-key: <email>)
+#contact([\@], [hi\@vadim.me], url: "mailto:agi@vadim.me", citation-key: <email>)
 #h(4mm)
 #contact([↗], [vadim.me], url: "https://vadim.me", citation-key: <website>)
 #h(4mm)
