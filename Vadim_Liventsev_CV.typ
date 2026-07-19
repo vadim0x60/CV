@@ -122,7 +122,7 @@
 
 #let tenure(years, affiliation) = [
   #text(size: 7.35pt, weight: 760, tracking: .035em, fill: accent)[#years]\
-  #v(1.2mm)
+  #v(2.2mm)
   #text(size: 8.4pt, weight: 720, fill: black)[#affiliation]
 ]
 
@@ -133,7 +133,7 @@
   align: (left + bottom, right + bottom),
   [
     #text(size: 27pt, weight: 700, tracking: -.035em, fill: black)[Vadim Liventsev]
-    #v(2.5mm)
+    #v(3mm)
     #text(size: 10.3pt, weight: 650, fill: accent)[Machine Learning Scientist & Engineer]
   ]
 )
