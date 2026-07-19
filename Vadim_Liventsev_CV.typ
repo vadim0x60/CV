@@ -187,7 +187,7 @@
   grid.cell(rowspan: 2, tenure([2024—2025], [Philips Research])),
   project([A medical-device support ticket classifier identifying common defect types.]),
   [],
-  project([A retrieval-based slide-deck generator for employee training.]),
+  project([A retrieval-based slide deck generator for employee training.]),
   [],
 
   // TU/e × Philips Research — spans four projects
