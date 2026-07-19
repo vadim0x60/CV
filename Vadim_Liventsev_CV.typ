@@ -306,36 +306,10 @@
     #artifact([Series], citation-key: <einreise>, url: "https://vadim.me/publications/einreise/")
   ],
 
-  tenure([2023], [Online]),
-  project([Talk]),
-  [
-    #project([Fully Autonomous Programming with Large Language Models])
-    #v(1mm)
-    #artifact([Notes], citation-key: <seidr-talk>, url: "https://vadim.me/publications/seidr/")
-  ],
-
-  tenure([2022], [Online]),
-  project([One-hour explainer]),
-  [
-    #project([Deceptive Diversity of Modern RL Methods])
-    #v(1mm)
-    #artifact([Notes], citation-key: <rl-explainer>, url: "https://vadim.me/publications/rl/")
-  ],
-
-  tenure([2020], [Online]),
-  project([Tutorial]),
-  [
-    #project([Writing a Custom OpenAI Gym Environment])
-    #v(1mm)
-    #artifact([Tutorial], citation-key: <heartpole-tutorial>, url: "https://vadim.me/publications/heartpole/")
-  ],
-
   grid.hline(y: 1, stroke: .2mm + faint),
   grid.hline(y: 2, stroke: .2mm + faint),
   grid.hline(y: 3, stroke: .2mm + faint),
   grid.hline(y: 4, stroke: .2mm + faint),
-  grid.hline(y: 5, stroke: .2mm + faint),
-  grid.hline(y: 6, stroke: .2mm + faint),
 )
 
 // The bibliography is the single directory for publications and other links;
