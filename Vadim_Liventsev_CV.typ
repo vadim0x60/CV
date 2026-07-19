@@ -250,7 +250,7 @@
   grid.cell(
     rowspan: 4,
     tenure([2019—2024], [
-      TU/e × Philips Research
+      TU Eindhoven × Philips Research
       #v(distance.md)
       #artifact(
         [PhD thesis],
@@ -328,7 +328,7 @@
   [],
 
   // HSE × ISPRAS
-  tenure([2013—2017], [HSE × ISPRAS]),
+  tenure([2013—2017], [Higher School of Economics × Institute for Systems Programming]),
   project(
     [A language-agnostic code completion system.],
     themes: ("code-generation", "training-models"),
@@ -336,7 +336,7 @@
   [],
 
   // LIT
-  tenure([2009—2013], [LIT]),
+  tenure([2009—2013], [Lyceum of Information Technologies]),
   project(
     [Swarm robotics algorithms for exploring a locality.],
     themes: ("multi-agent",),
