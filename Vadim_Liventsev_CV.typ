@@ -267,7 +267,7 @@
 
 // Teaching, courses, talks, and community work
 #pagebreak()
-#section-title[Teaching and Yapping]
+#section-title[Teaching]
 #v(2.5mm)
 #line(length: 100%, stroke: .55mm + ink)
 #v(3.5mm)
