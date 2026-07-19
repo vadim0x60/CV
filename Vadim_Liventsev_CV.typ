@@ -282,7 +282,8 @@
 )
 
 // The bibliography is the single directory for publications and other links;
-// citation order and formatting are controlled by the selected CSL style.
+// only entries cited in the CV are exported, and their order and formatting are
+// controlled by the selected CSL style.
 #pagebreak()
 #section-title[REFERENCES & LINKS]
 #v(2.5mm)
@@ -295,5 +296,5 @@
   set text(size: 8.3pt)
   set par(leading: .42em, spacing: 3mm)
   show link: set text(size: 7.2pt)
-  bibliography("publications.bib", style: "ieee", title: none, full: true)
+  bibliography("publications.bib", style: "ieee", title: none)
 }
