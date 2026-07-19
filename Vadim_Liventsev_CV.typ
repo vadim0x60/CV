@@ -139,11 +139,13 @@
       columns: (1fr,),
       row-gutter: 1.15mm,
       align: right,
-      contact([London, UK]),
-      contact([hire\@vadim.me], url: "mailto:agi@vadim.me"),
+
+      [#contact([hire\@vadim.me], url: "mailto:hire@vadim.me")
+       #h(2mm)
+       #contact([London, UK])],
       [
         #contact([GitHub], url: "https://github.com/vadim0x60", citation-key: <github-profile>)
-        #h(3mm)
+        #h(2mm)
         #contact([Google Scholar], url: "https://scholar.google.com/citations?user=tpB0Uw8AAAAJ", citation-key: <google-scholar>)
       ],
     )
