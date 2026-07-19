@@ -33,7 +33,7 @@
       )
     ],
     [
-      #text(size: 7pt, fill: muted)[Numbered references and links on page 3.]
+      #text(size: 7pt, fill: muted)[Numbered references and links on page 2.]
     ],
   )
 ]
@@ -174,7 +174,7 @@
 
 #grid(
   columns: (36mm, 1fr, 49mm),
-  rows: 16.5mm,
+  rows: 15mm,
   column-gutter: 4mm,
   align: (left + horizon, left + horizon, left + horizon),
 
@@ -266,16 +266,16 @@
 )
 
 // Teaching, courses, talks, and community work
-#pagebreak()
+#v(4mm)
 #section-title[Teaching]
 #v(2.5mm)
 #line(length: 100%, stroke: .55mm + ink)
-#v(3.5mm)
+#v(2.5mm)
 
 #grid(
   columns: (36mm, 1fr),
   column-gutter: 4mm,
-  row-gutter: 4.5mm,
+  row-gutter: 2.5mm,
   align: (left + top, left + top),
 
   [#text(size: 7.35pt, weight: 700, fill: accent)[2018—2019] #text(size: 7.35pt, fill: muted)[· Skoltech]],
