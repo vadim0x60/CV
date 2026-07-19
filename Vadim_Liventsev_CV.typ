@@ -230,7 +230,7 @@
   tenure([2025—2026], [Ideatura]),
   project(
     [An LLM coding harness for manipulating 3D models.],
-    themes: ("code-generation",),
+    themes: ("code-generation","multi-agent"),
   ),
   [#artifact([ideatura.ai], citation-key: <ideatura>, url: "https://ideatura.ai")],
 
@@ -260,7 +260,7 @@
     ]),
   ),
   project(
-    [Multi-agent coding frameworks combining LLMs with genetic-programming principles.],
+    [Multi-agent coding frameworks combining LLMs with genetic programming principles.],
     themes: ("code-generation", "multi-agent"),
   ),
   [
@@ -272,14 +272,14 @@
   ],
   project(
     [Structural language models for source code.],
-    themes: ("code-generation", "training-models"),
+    themes: ("code-generation", "training-models", "managing-people"),
   ),
   [
     #artifact([Tree VAE], citation-key: <liventsev2025tree>, url: "https://doi.org/10.1109/ACCESS.2025.3532522")
   ],
   project(
-    [Reinforcement-learning environments for healthcare, spanning vision and structured data.],
-    themes: ("reinforcement-learning", "healthtech"),
+    [Reinforcement learning environments for healthcare, spanning vision and structured data.],
+    themes: ("reinforcement-learning", "healthtech", "training-models","managing-people"),
   ),
   [
     #artifact([Simulators paper], citation-key: <liventsev2021simulators>, url: "https://doi.org/10.3389/frai.2021.798659")
@@ -303,7 +303,7 @@
   // RedKangaroo
   tenure([2019], [RedKangaroo]),
   project(
-    [A clinical-data exchange platform for syncing health data between providers.],
+    [A clinical data exchange platform for syncing health data between providers.],
     themes: ("healthtech",),
   ),
   [],
@@ -324,7 +324,6 @@
   tenure([2017], [BotEngine]),
   project(
     [A web app for building chatbots with rules and flowcharts.],
-    themes: ("managing-people",),
   ),
   [],
 
