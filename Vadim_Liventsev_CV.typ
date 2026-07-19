@@ -14,37 +14,14 @@
   height: 11mm,
 )
 
-#let footer = [
-  #line(length: 100%, stroke: .25mm + faint)
-  #v(2.6mm)
-  #grid(
-    columns: (1fr, auto),
-    column-gutter: 6mm,
-    align: (left + horizon, right + horizon),
-    [
-      #grid(
-        columns: (11mm, auto),
-        column-gutter: 3mm,
-        align: center,
-        qr,
-        [
-          #text(size: 7pt, weight: 700, fill: ink)[vadim.me]
-        ],
-      )
-    ]
-  )
-]
-
 #set document(
   title: "Research, Development, Teaching and Yapping",
   author: "Vadim Liventsev",
 )
 #set page(
   paper: "a4",
-  margin: (top: 12mm, right: 13mm, bottom: 21mm, left: 13mm),
-  footer-descent: 5mm,
+  margin: (top: 12mm, right: 13mm, bottom: 13mm, left: 13mm),
   fill: paper,
-  footer: footer,
 )
 #set text(
   font: ("Helvetica Neue", "Arial"),
@@ -133,18 +110,25 @@
   ],
   [
     #grid(
-      columns: (1fr,),
-      row-gutter: 1.15mm,
-      align: right,
-
-      [#contact([hire\@vadim.me], url: "mailto:hire@vadim.me")
-       #h(2mm)
-       #contact([London, UK])],
+      columns: (1fr, 11mm),
+      column-gutter: 3mm,
+      align: (right + horizon, right + top),
       [
-        #contact([GitHub], url: "https://github.com/vadim0x60", citation-key: <github-profile>)
-        #h(2mm)
-        #contact([Google Scholar], url: "https://scholar.google.com/citations?user=tpB0Uw8AAAAJ", citation-key: <google-scholar>)
+        #grid(
+          columns: (1fr,),
+          row-gutter: 1.15mm,
+          align: right,
+          [#contact([hire\@vadim.me], url: "mailto:hire@vadim.me")
+           #h(2mm)
+           #contact([London, UK])],
+          [
+            #contact([GitHub], url: "https://github.com/vadim0x60", citation-key: <github-profile>)
+            #h(2mm)
+            #contact([Google Scholar], url: "https://scholar.google.com/citations?user=tpB0Uw8AAAAJ", citation-key: <google-scholar>)
+          ],
+        )
       ],
+      qr,
     )
   ],
 )
