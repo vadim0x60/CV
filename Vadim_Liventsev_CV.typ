@@ -226,6 +226,18 @@
   column-gutter: distance.xl,
   align: (left + horizon, left + horizon, left + horizon),
 
+  // Archestra
+  tenure([2026—present], [Archestra]),
+  project(
+    [A framework for reliability guarantees for non-deterministic software.],
+    themes: ("multi-agent",),
+  ),
+  [
+    #artifact([OpenAPPA paper], citation-key: <openappa-paper>, url: "https://arxiv.org/abs/2607.24625")
+    #h(distance.sm)
+    #artifact([OpenAPPA GitHub], citation-key: <openappa-code>, url: "https://github.com/archestra-ai/OpenAPPA")
+  ],
+
   // Ideatura
   tenure([2025—2026], [Ideatura]),
   project(
@@ -347,17 +359,18 @@
   // merged affiliation the line skips the left column so the cell reads
   // as a single span.
   grid.hline(y: 1, stroke: .2mm + faint),
-  grid.hline(y: 2, start: 1, end: 3, stroke: .2mm + faint),
-  grid.hline(y: 3, stroke: .2mm + faint),
-  grid.hline(y: 4, start: 1, end: 3, stroke: .2mm + faint),
+  grid.hline(y: 2, stroke: .2mm + faint),
+  grid.hline(y: 3, start: 1, end: 3, stroke: .2mm + faint),
+  grid.hline(y: 4, stroke: .2mm + faint),
   grid.hline(y: 5, start: 1, end: 3, stroke: .2mm + faint),
   grid.hline(y: 6, start: 1, end: 3, stroke: .2mm + faint),
-  grid.hline(y: 7, stroke: .2mm + faint),
+  grid.hline(y: 7, start: 1, end: 3, stroke: .2mm + faint),
   grid.hline(y: 8, stroke: .2mm + faint),
   grid.hline(y: 9, stroke: .2mm + faint),
   grid.hline(y: 10, stroke: .2mm + faint),
   grid.hline(y: 11, stroke: .2mm + faint),
   grid.hline(y: 12, stroke: .2mm + faint),
+  grid.hline(y: 13, stroke: .2mm + faint),
 )
 
 // Teaching, courses, talks, and community work
