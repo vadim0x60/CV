@@ -41,7 +41,7 @@
   fill: paper,
 )
 #set text(
-  font: ("Helvetica Neue", "Arial"),
+  font: ("Arial", "Liberation Sans"),
   size: 10pt,
   fill: ink,
   lang: "en",
@@ -222,9 +222,17 @@
 
 #grid(
   columns: (36mm, 1fr, 49mm),
-  rows: 15mm,
+  rows: 14mm,
   column-gutter: distance.xl,
   align: (left + horizon, left + horizon, left + horizon),
+
+  // Astrolabe
+  tenure([2026—present], [Astrolabe Ventures]),
+  project(
+    [ML models to surface and evaluate VC investment opportunities.],
+    themes: ("training-models",),
+  ),
+  [#artifact([astrolabe.vc], citation-key: <astrolabe>, url: "https://astrolabe.vc")],
 
   // Archestra
   tenure([2026—present], [Archestra]),
@@ -360,17 +368,18 @@
   // as a single span.
   grid.hline(y: 1, stroke: .2mm + faint),
   grid.hline(y: 2, stroke: .2mm + faint),
-  grid.hline(y: 3, start: 1, end: 3, stroke: .2mm + faint),
-  grid.hline(y: 4, stroke: .2mm + faint),
-  grid.hline(y: 5, start: 1, end: 3, stroke: .2mm + faint),
+  grid.hline(y: 3, stroke: .2mm + faint),
+  grid.hline(y: 4, start: 1, end: 3, stroke: .2mm + faint),
+  grid.hline(y: 5, stroke: .2mm + faint),
   grid.hline(y: 6, start: 1, end: 3, stroke: .2mm + faint),
   grid.hline(y: 7, start: 1, end: 3, stroke: .2mm + faint),
-  grid.hline(y: 8, stroke: .2mm + faint),
+  grid.hline(y: 8, start: 1, end: 3, stroke: .2mm + faint),
   grid.hline(y: 9, stroke: .2mm + faint),
   grid.hline(y: 10, stroke: .2mm + faint),
   grid.hline(y: 11, stroke: .2mm + faint),
   grid.hline(y: 12, stroke: .2mm + faint),
   grid.hline(y: 13, stroke: .2mm + faint),
+  grid.hline(y: 14, stroke: .2mm + faint),
 )
 
 // Teaching, courses, talks, and community work
