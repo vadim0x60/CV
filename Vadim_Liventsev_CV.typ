@@ -237,7 +237,7 @@
   // Archestra
   tenure([2026—present], [Archestra]),
   project(
-    [A framework for provable reliability guarantees for non-deterministic software.],
+    [Algebraic reliability guarantees for AI agents],
     themes: ("multi-agent",),
   ),
   [
