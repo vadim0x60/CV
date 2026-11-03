@@ -1,0 +1,61 @@
+name: Release CV
+
+# Every push to master that touches the CV publishes a new release with cv.pdf attached,
+# so https://github.com/<owner>/<repo>/releases/latest/download/cv.pdf always serves the newest CV.
+on:
+  push:
+    branches: [master]
+    paths:
+      - Vadim_Liventsev_CV.typ
+      - publications.bib
+      - Makefile
+      - .github/workflows/release.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: typst-community/setup-typst@v5
+        with:
+          typst-version: 0.15.1
+          cache-dependency-path: Vadim_Liventsev_CV.typ
+
+      # Arial is not on the runner; Liberation Sans is its metric-compatible fallback in the CV.
+      - name: Install fonts
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq fonts-liberation
+
+      - name: Build PDF
+        run: |
+          make 2>&1 | tee build.log
+          if grep -qi 'unknown font family: liberation sans' build.log; then
+            echo "::error::Liberation Sans not found; the PDF would use a fallback font"
+            exit 1
+          fi
+          cp Vadim_Liventsev_CV.pdf cv.pdf
+
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag="cv-$(date -u +%Y-%m-%d)-${GITHUB_SHA::7}"
+          # A manual re-run on an already released commit refreshes that release instead of failing.
+          if gh release view "$tag" >/dev/null 2>&1; then
+            gh release upload "$tag" cv.pdf --clobber
+            gh release edit "$tag" --latest
+            exit 0
+          fi
+          gh release create "$tag" cv.pdf \
+            --target "$GITHUB_SHA" \
+            --title "CV $(date -u +%Y-%m-%d) (${GITHUB_SHA::7})" \
+            --notes "Built from ${GITHUB_SHA}." \
+            --latest
